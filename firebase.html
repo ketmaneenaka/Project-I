@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first เอามาจาก setup  ใน get start -->
+    
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDIx32uGBJ3GGfRFRAeMyXieh7sg__lQvg",
+    authDomain: "foodmonkey-457b5.firebaseapp.com",
+    databaseURL: "https://foodmonkey-457b5.firebaseio.com",
+    projectId: "foodmonkey-457b5",
+    storageBucket: "foodmonkey-457b5.appspot.com",
+    messagingSenderId: "924489167542",
+    appId: "1:924489167542:web:8c481d88eaec4784886c17"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  //firebase.analytics(); ลบบรรทัดนี้ออกนะ
+  
+  // use firestore 2222222222222222222222222222222
+  var db = firebase.firestore();
+
+//555555555555555555555555555555555
+  db.collection("recommended").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        //ถ้าอยากได้ชื่อ
+        console.log(doc.data().name);
+        //ถ้าอยากได้ id
+        console.log(doc.data().id);
+    });
+});
+
+ 
+//add ข้อมูล 3333333333333333333333333333333333333 ในวงเล็บเปลี่ยนชื่อตามในตาราง firsebase
+//   db.collection("recommended").add({
+// //add column ตามตารางของเรา
+//     name : "Yellow",
+//     photpUrl : "",
+//     id:"0006"
+// })
+// .then(function(docRef) {
+//     console.log("Document written with ID: ", docRef.id);
+// })
+// .catch(function(error) {
+//     console.error("Error adding document: ", error);
+// });
+
+
+</script>
+
+
+
+    
+</body>
+</html>
