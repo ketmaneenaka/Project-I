@@ -14,7 +14,7 @@
         </div>
     </ons-toolbar>
     <p style="text-align: center; margin-top: 70px; margin-bottom: 10px;">
-        <ons-search-input placeholder="Food or Restuarant">
+        <ons-search-input placeholder="Serch">
         </ons-search-input>
     </p>
 
@@ -23,6 +23,7 @@
             <h4>Recomended</h4>
             <ons-carousel auto-scroll auto-scroll-ratio="0.5" auto-refresh swipeable overscrollable item-width="130px"
                
+            
             class="recomended_list" id="carousel">
                 <ons-carousel-item modifier="nodivider" id="item1" class="recomended_item">
                     <div class="thumbnail" style="background-image: url('images/thumb1.png')">
@@ -58,7 +59,8 @@
         <div class="category_content">
             <h4 style="margin-top: 0px">Food Category</h4>
             <ons-row class="category">
-               <button id="btn1">
+            
+                <button id="btn1">
                 <ons-col modifier="nodivider" >
                     <div class="category_wrapper" style="background-image: url('images/category1.png')">
                         <figure class="category_thumbnail">
@@ -68,17 +70,19 @@
                 </ons-col>
             </button>
             
-                     
+            <button id="btn2">  
                 <ons-col modifier="nodivider">
-                    <div class="category_wrapper" style="background-image: url('images/category2.png')">
+                    <div class="category_wrapper" style="background-image: url('images/category2.png')" >
                         <figure class="category_thumbnail">
                             <div class="category_title" id="Category_1_name">Dessert</div>
                         </figure>
                     </div>
                 </ons-col>
-            
+            </button>
             </ons-row>
+
             <ons-row class="category">
+            <button id="btn3">
                 <ons-col modifier="nodivider">
                     <div class="category_wrapper" style="background-image: url('images/category3.png')">
                         <figure class="category_thumbnail">
@@ -86,6 +90,9 @@
                         </figure>
                     </div>
                 </ons-col>
+            </button>
+
+            <button id="btn4">
                 <ons-col modifier="nodivider">
                     <div class="category_wrapper" style="background-image: url('images/category4.png')">
                         <figure class="category_thumbnail">
@@ -93,6 +100,7 @@
                         </figure>
                     </div>
                 </ons-col>
+            </button>
             </ons-row>
             
         </div>

@@ -43,14 +43,28 @@ document.addEventListener('init', function (event) {
   if (page.id === 'homePage') {
     console.log("homePage");
 
-
+//fastfood
      $("#btn1").click(function () {
-
-      window.location='thai.html'
-      //  $("#content")[0].load("thai.html");  
-      //  $("#sidemenu")[0].close();   
+      window.location='fastfood.html'  
        console.log("go");
      });
+//dessert
+$("#btn2").click(function () {
+  window.location='dessert.html'  
+   console.log("go");
+ });
+
+//Drink
+$("#btn3").click(function () {
+  window.location='drink.html'  
+   console.log("go");
+ });
+
+//Islam
+$("#btn4").click(function () {
+  window.location='islam.html'  
+   console.log("go");
+ });
 
 
     $("#menubtn").click(function () {
@@ -69,6 +83,11 @@ document.addEventListener('init', function (event) {
           
       });
   });
+
+
+  
+
+
   
 
 
