@@ -79,9 +79,8 @@ document.addEventListener('init', function (event) {
   if (page.id === 'menuPage') {
     console.log("menuPage");
 
-    $("#login").click(function () {
-      $("#content")[0].load("login.html");  
-      $("#sidemenu")[0].close();   
+    $("#logout").click(function () {
+      window.location='login.html'  
     });
 
     $("#logout").click(function () {
