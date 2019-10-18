@@ -5,60 +5,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- firebase link  -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+
+  <!-- onsen  link -->
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <!-- link font -->
   <title>Onsen App</title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Saira+Stencil+One&display=swap" rel="stylesheet">
+  <style>
+    #login .page__background {
+      background-color: gold;
+    }
+  </style>
 
-  <script src="lib/onsen/js/onsenui.js"></script>
-  <script src="lib/jquery/jquery-3.4.1.min.js"></script>
-  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
-  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
 
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+    apiKey: "AIzaSyDIx32uGBJ3GGfRFRAeMyXieh7sg__lQvg",
+    authDomain: "foodmonkey-457b5.firebaseapp.com",
+    databaseURL: "https://foodmonkey-457b5.firebaseio.com",
+    projectId: "foodmonkey-457b5",
+    storageBucket: "foodmonkey-457b5.appspot.com",
+    messagingSenderId: "924489167542",
+    appId: "1:924489167542:web:8c481d88eaec4784886c17"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+  </script>
 </head>
 
-<style>
-  #mypage .page__background {
-    background-color: gold;
-  }
-</style>
 
 <body>
   <ons-navigator id="myNavigator" page="login.html">
   </ons-navigator>
-  <center>
-    <ons-page id='mypage'>
-      <div>
-        <p>
-          <img src="images/regislogo.jpg" alt="Logo FoodMonkey" style="width:300px;height:150px;">
-        </p>
+  <template id="login.html">
+    <center>
+      <ons-page id='login'>
+        <div>
+          
+          <p>
+            <img src="image/logom.jpg" alt="Logo FoodMonkey" style="width:130px;height:100px; padding: 2em;">
+            <h1 style="font-family: 'Lobster', cursive; font-size: 30px; padding: 5px;" id="text">FoodMonkey</h1>
+          </p>
+          <p style=" font-family: 'Squada One', cursive;">Do you have a FoodMonkey account?</p>
 
-        <p>Do you have a FoodMonkey account?</p>
+          <p style="margin-top: 30px; border: 1px solid Gray; border-radius: 7px; width: 280px;">
+            <ons-input input-id="email" placeholder="Email" float></ons-input>
+          </p>
 
-        <p style="margin-top: 30px; border: 1px solid Gray; border-radius: 7px; width: 280px;">
-          <ons-input id="email" placeholder="Email" float></ons-input>
-        </p>
+          <p style="margin-top: 30px; border: 1px solid Gray; border-radius: 7px; width: 280px;">
+            <ons-input input-id="password" type="password" placeholder="Password" float></ons-input>
+          </p>
 
-        <p style="margin-top: 30px; border: 1px solid Gray; border-radius: 7px; width: 280px;">
-          <ons-input id="password" type="password" placeholder="Password" float></ons-input>
-        </p>
+          <p style="margin-top: 30px;">
+            <ons-button onclick="login()">Sign in</ons-button>
+          </p>
 
-        <p style="margin-top: 30px;">
-          <ons-button id="login" onclick="login()">Sign in</ons-button>
-        </p>
-        
-        <p style="align-content: center; color:Gray;">or</p>
-        
-        <p>
-          <ons-button id="signinfacebt" class="button--large--cta" style="width: 280px; border-radius: 7px; margin: 0 auto;">Sign In using
-            Facebook</ons-button>
-        </p>
+          <p style="align-content: center; color:Gray;">or</p>
 
-        <p>
-          <p>Don't have an account?</p>
-          <ons-button id="reigterbt"class="button--large--cta" style="width: 280px; border-radius: 7px; margin: 0 auto;">Register</ons-button>
-        </p>
-      </div>
+          <p>
+            <ons-button onclick="google()" id="signinfacebt" class="button--large--cta"
+              style="background-color: rgb(247, 15, 73);width: 280px; border-radius: 7px; margin: 0 auto;">Sign In using
+              Gmail</ons-button>
+          </p>
 
-    </ons-page>
-  </center>
+          <p>
+            <p>Don't have an account?</p>
+            <ons-button id="reigterbt" class="button--large--cta"
+              style="background-color: rgb(197, 148, 207);width: 280px; border-radius: 7px; margin: 0 auto;"
+              onclick="regiter()">Register
+            </ons-button>
+          </p>
+        </div>
+
+      </ons-page>
+    </center>
+  </template>
+  <script>
+
+    //login username
+    var login = function () {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(error.code + ':' + error.message);
+        ons.notification.alert('Login faild');
+        // ...
+      });
+
+    };
+
+    function google() {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+      firebase.auth().signInWithPopup(provider).then(function (result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+      }).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    }
+
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        window.location.href = 'index.html';
+
+      }
+    });
+
+
+    function regiter() {
+      window.location.href = 'register.html';
+
+    }
+  </script>
 </body>
 
 </html>
