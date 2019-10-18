@@ -70,12 +70,13 @@ $("#btn4").click(function () {
     $("#menubtn").click(function () {
       $("#sidemenu")[0].open();      
     });
-  
+  //;background-size: 100%; หลัง ) ที่ thumbnail
     $("#carousel").empty();
     db.collection("recommended").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         var item = `<ons-carousel-item modifier="nodivider" id="${doc.data().id}" class="recomended_item">
-        <div class="thumbnail"  style="background-image: url('${doc.data().photoUrl}');background-size: 100%;">
+        <div class="thumbnail"  style="background-image: url('${doc.data().photoUrl}')">
+    
         </div>
         <div class="recomended_item_title" id="item1_name">'${doc.data().name}</div>
     </ons-carousel-item>` ;
