@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FoodMonkey</title>
+
+    <script src="lib/onsen/js/onsenui.js"></script>
+    <script src="lib/jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
+
+</head>
+
+<body>
+    <ons-navigator id="myNavigator" page="login.html">
+    </ons-navigator>
+    <center>
+        <ons-page id='mypage'>
+            <ons-navigator title="Navigator" var="myNavigator">
+                <ons-page>
+
+
+
+
+                    <ons-toolbar>
+                            <div class="toolbar__left">
+                                    <span class="toolbar-button" style="color: rgb(49, 12, 184); font-weight: bold;"
+                                        onclick="back()">back</span>
+                                </div>
+                        <div class="center">ตามสั่งแม่มณี</div>
+                    </ons-toolbar>
+
+
+
+
+                    <ons-scroller>
+                          
+                                   
+                                    <div class="center">
+                                        <center>
+                                            <span><img
+                                                    src="https://dqk1dnz21ztlg.cloudfront.net/wp-content/uploads/2017/05/17121631/shutterstock_585496844.jpg"
+                                                    alt="Chinese" style="width:400px;height:200px;"></img></span>
+                                        </center>
+                                    </div>
+                                
+                        <ons-card>
+                            <ons-list-item modifier="chevron" onclick="paymentbtn()" tappable>ข้าวผัดกระเพราหมูสับ     40 $</ons-list-item>
+
+                           
+                        </ons-card>
+
+                        <ons-card>
+                                <ons-list-item modifier="chevron" onclick="paymentbtn()" tappable>ข้าวผัดหมู     40$</ons-list-item>
+                        </ons-card>
+
+                            <ons-card>
+                                    <ons-list-item modifier="chevron" onclick="paymentbtn()" tappable>ข้าวเครื่องแกงหมู    40$</ons-list-item>
+
+                                </ons-card>
+    
+
+
+    
+
+                        
+                       
+                    </ons-scroller>
+                </ons-page>
+            </ons-navigator>
+            Resources
+
+        </ons-page>
+    </center>
+     
+    <script>   
+     function back() {
+        window.location.href = "fastfood.html";
+    }        
+       
+        function paymentbtn() {
+          window.location.href='payment.html'
+        }
+        
+        </script> 
+</body>
+
+</html>
