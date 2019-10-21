@@ -100,7 +100,7 @@ $("#islambtn").click(function () {
     db.collection("recommended").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         var item = `<ons-carousel-item modifier="nodivider" id="${doc.data().id}" class="recomended_item">
-        <div class="thumbnail"  style="background-image: url('${doc.data().photoUrl}')">
+        <div class="thumbnail"  style="background-image: url('${doc.data().photoUrl}');background-size: 180%;">
     
         </div>
         <div class="recomended_item_title" id="item1_name">'${doc.data().name}</div>
@@ -157,15 +157,19 @@ $("#islambtn").click(function () {
     db.collection("recommended").where("category", "==", category).get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        var item = `<ons-row class="category">
-                <ons-col modifier="nodivider">
-                    <div class="category_header" style="background-image: url('${doc.data().photoUrl}');background-size: 100%; ">
-                        <figure class="category_thumbnail" id="thaibtn">
-                            <div class="category_title" id="Category_1_name">${doc.data().name}</div>
-                        </figure>
-                    </div>
-                </ons-col>
-         </ons-row>`
+        var item = `
+        <ons-scroller>
+        <ons-card style="margin-top: 40px;">
+        <div class="category">
+        <div class="col-6">
+        
+       
+        <img class="category_header" src="${doc.data().photoURL}" style="width:80%;">         
+        <p>${doc.data().name}</p>
+ </div>
+    
+   </div>   </ons-card>  </ons-scroller>
+         `
         $("#list").append(item);
         console.log(doc.data().name);
         
