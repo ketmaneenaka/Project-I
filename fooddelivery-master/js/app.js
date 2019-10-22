@@ -49,6 +49,11 @@ function Confirm_mony() {
 
   $("#myNavigator")[0].pushPage("payment.html");
 }
+
+$("#con").click(function () {
+  window.location = 'index.html'
+});
+
 var keep = [];
 var store = [];
 var prices = parseInt(0);
@@ -221,6 +226,10 @@ $(".sumprice").append(sumprice1);
               <p style="color: black; font-size: 15px;" class="font">
               เวลาเปิดบริการ: </p>
             </div>
+            <div style="width: 50%;">
+            <p style="color: black; font-size: 15px;" class="font">
+              ${doc.data().time} </p>
+          </div>
           </ons-row>
       </ons-card>`;
             $("#imgmenu").append(item);
