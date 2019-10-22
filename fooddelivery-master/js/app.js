@@ -227,7 +227,6 @@ $(".sumprice").append(sumprice1);
           });
         });
 
-
       $("#show").empty();
       db.collection("restaurant").get()
         .then((querySnapshot) => {
@@ -240,6 +239,44 @@ $(".sumprice").append(sumprice1);
           });
         });
     }
+    if (show_shopid == "2") {
+      $("#imgmenu").empty();
+      db.collection("recommended")
+        .where("id", "==", "0002")
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            
+            var item = `<ons-card style="background-color: rgb(252, 252, 116);">
+          <div>
+              <div style="text-align:center; font-size: 50px; color: black;" class="font">${
+              doc.data().name
+              }</div>
+          </div>
+          <div style="text-align:center;">
+                <img src="${doc.data().photoUrl}" style="width: 150px;">
+            </div>
+          <ons-row style="width: 100%;">
+            <div style="width: 12%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ที่อยู่: </p>
+            </div>
+            <div style="width: 88%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ${doc.data().address} </p>
+            </div>
+          </ons-row>
+          <ons-row style="width: 100%;">
+            <div style="width: 35%;">
+              <p style="color: black; font-size: 15px;" class="font">
+              เวลาเปิดบริการ: </p>
+            </div>
+          </ons-row>
+      </ons-card>`;
+            $("#imgmenu").append(item);
+          });
+        });
+      }
     $("#show").empty();
     if (show_shopid == "2") {
       db.collection("restaurant2").get()
@@ -254,6 +291,45 @@ $(".sumprice").append(sumprice1);
           });
         });
     }
+
+    if (show_shopid == "3") {
+      $("#imgmenu").empty();
+      db.collection("recommended")
+        .where("id", "==", "0003")
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            
+            var item = `<ons-card style="background-color: rgb(252, 252, 116);">
+          <div>
+              <div style="text-align:center; font-size: 50px; color: black;" class="font">${
+              doc.data().name
+              }</div>
+          </div>
+          <div style="text-align:center;">
+                <img src="${doc.data().photoUrl}" style="width: 150px;">
+            </div>
+          <ons-row style="width: 100%;">
+            <div style="width: 12%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ที่อยู่: </p>
+            </div>
+            <div style="width: 88%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ${doc.data().address} </p>
+            </div>
+          </ons-row>
+          <ons-row style="width: 100%;">
+            <div style="width: 35%;">
+              <p style="color: black; font-size: 15px;" class="font">
+              เวลาเปิดบริการ: </p>
+            </div>
+          </ons-row>
+      </ons-card>`;
+            $("#imgmenu").append(item);
+          });
+        });
+      }
     $("#show").empty();
     if (show_shopid == "3") {
       db.collection("restaurant4").get()
@@ -267,6 +343,46 @@ $(".sumprice").append(sumprice1);
           });
         });
     }
+
+
+    if (show_shopid == "1") {
+      $("#imgmenu").empty();
+      db.collection("recommended")
+        .where("id", "==", "0001")
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            
+            var item = `<ons-card style="background-color: rgb(252, 252, 116);">
+          <div>
+              <div style="text-align:center; font-size: 50px; color: black;" class="font">${
+              doc.data().name
+              }</div>
+          </div>
+          <div style="text-align:center;">
+                <img src="${doc.data().photoUrl}" style="width: 150px;">
+            </div>
+          <ons-row style="width: 100%;">
+            <div style="width: 12%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ที่อยู่: </p>
+            </div>
+            <div style="width: 88%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ${doc.data().address} </p>
+            </div>
+          </ons-row>
+          <ons-row style="width: 100%;">
+            <div style="width: 35%;">
+              <p style="color: black; font-size: 15px;" class="font">
+              เวลาเปิดบริการ: </p>
+            </div>
+          </ons-row>
+      </ons-card>`;
+            $("#imgmenu").append(item);
+          });
+        });
+      }
     $("#show").empty();
     if (show_shopid == "1") {
       db.collection("restaurant3").get()
@@ -280,6 +396,45 @@ $(".sumprice").append(sumprice1);
           });
         });
     }
+
+    if (show_shopid == "5") {
+      $("#imgmenu").empty();
+      db.collection("recommended")
+        .where("id", "==", "0002")
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            
+            var item = `<ons-card style="background-color: rgb(252, 252, 116);">
+          <div>
+              <div style="text-align:center; font-size: 50px; color: black;" class="font">${
+              doc.data().name
+              }</div>
+          </div>
+          <div style="text-align:center;">
+                <img src="${doc.data().photoUrl}" style="width: 150px;">
+            </div>
+          <ons-row style="width: 100%;">
+            <div style="width: 12%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ที่อยู่: </p>
+            </div>
+            <div style="width: 88%;">
+              <p style="color: black; font-size: 15px;" class="font">
+                ${doc.data().address} </p>
+            </div>
+          </ons-row>
+          <ons-row style="width: 100%;">
+            <div style="width: 35%;">
+              <p style="color: black; font-size: 15px;" class="font">
+              เวลาเปิดบริการ: </p>
+            </div>
+          </ons-row>
+      </ons-card>`;
+            $("#imgmenu").append(item);
+          });
+        });
+      }
     $("#show").empty();
     if (show_shopid == "5") {
       db.collection("restaurant1").get()
