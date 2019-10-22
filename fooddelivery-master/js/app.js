@@ -145,7 +145,7 @@ $("#islambtn").click(function () {
 
   if (page.id === 'categoryPage') {
     var category = localStorage.getItem("selectedCategory");
-    console.log("categoryPage:" + category);
+    console.log(category);
 
     $("#header").html(category);
 
@@ -158,18 +158,18 @@ $("#islambtn").click(function () {
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         var item = `
-        <ons-scroller>
-        <ons-card style="margin-top: 40px;">
-        <div class="category">
-        <div class="col-6">
         
-       
-        <img class="category_header" src="${doc.data().photoURL}" style="width:80%;">         
-        <p>${doc.data().name}</p>
+        <ons-card style="margin-top: 40px;">
+        // <div onclick="selectid('${doc.data().id}')" style="height: 180px; background-position: center; background-size: auto 230px; background-image: url('${doc.data().photoUrl}')">
+        </div>
+      
+        <div class="category_title" id="Category_1_name">${doc.data().name}</div>
+  
  </div>
     
-   </div>   </ons-card>  </ons-scroller>
+   </div>   </ons-card>  
          `
+         
         $("#list").append(item);
         console.log(doc.data().name);
         
@@ -198,3 +198,8 @@ $("#islambtn").click(function () {
     });
   }
 });
+
+// function selectid(res_id){
+//   localStorage.setItem("selectedCategory", res_id);
+//   $("#content")[0].load("Rtamsang.html"); 
+// }
