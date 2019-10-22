@@ -2,21 +2,18 @@
     <ons-toolbar style="background-color:rgb(240, 240, 135)">
         <div class="left">
             <!-- Toolbar-button with different icons depending on the platform. -->
-            <ons-toolbar-button id="menubtn" >
-                <ons-icon icon="ion-navicon, material:md-menu" size="32px, material:24px"></ons-icon>
-            </ons-toolbar-button>
-        </div>
-        <div class="center">Category</div>
-        <div class="right">
-            
-                <ons-icon icon="fa-user-circle"></ons-icon>
-            
-        </div>
+            <div class="toolbar__left">
+                <span id ="back" class="toolbar-button" style="color: rgb(49, 12, 184); font-weight: bold;">back</span>
+            </div>
+           </div>
+           <div class="center" id="header">Category</div>        
+       
     </ons-toolbar>
     <div class="content" style=" text-align: center;">
         <ons-row class="category">
             <ons-col modifier="nodivider">
-                <h2 id="header" class="category_header_title"></h2>
+                
+                
             </ons-col>
         </ons-row>
         <div id="list">
@@ -25,11 +22,3 @@
     </div>
 
 </ons-page>
-
-
-
-
-
-
-
-
