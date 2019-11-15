@@ -543,6 +543,11 @@ $(".sumprice").append(sumprice1);
       $("#content")[0].load("home.html");
       $("#sidemenu")[0].close();
     });
+
+    $("#address").click(function () {
+      $("#content")[0].load("address.html");
+      $("#sidemenu")[0].close();
+    });
   }
 
   if (page.id === 'categoryPage') {
@@ -581,6 +586,59 @@ $(".sumprice").append(sumprice1);
 
   }
 
+  if (page.id === 'addressPage') {
+    console.log("addressPage");
+
+    $("#homebtn").click(function () {
+      $("#content")[0].load("home.html");
+    });
+
+    var lat , selectedLat;
+    var lng , selectedLng;
+
+    var onSuccess = function (position) {
+      lat = position.coords.latitude;
+      lng = position.coords.longitude;
+
+      mapboxgl.accessToken = 'pk.eyJ1IjoicGFuZy13aXBhZGEiLCJhIjoiY2sybGFiYzl4MDUxdDNldDV1eXNmcmNtNSJ9.w3LG00D4Lz3nleOMe5WtOQ';
+      var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: [lng, lat], // starting position [lng, lat]
+        zoom: 14 // starting zoom
+      });
+
+      var marker = new mapboxgl.Marker({
+        draggable: true
+      })
+        .setLngLat([lng, lat])
+        .addTo(map);
+
+      function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        selectedLat = lngLat.lat;
+        selectedLng = lngLat.lng;
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+      }
+
+      marker.on('dragend', onDragEnd);
+    };
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+      alert('code: ' + error.code + '\n' +
+        'message: ' + error.message + '\n');
+    }
+
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+    $("#setaddress").click(function () {
+      ons.notification.alert("Delivery : " + selectedLat + "," +selectedLng);
+    });
+
+  }
 
 
   if (page.id === 'loginPage') {
