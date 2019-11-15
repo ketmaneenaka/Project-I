@@ -1,0 +1,38 @@
+[debug] [2019-10-22T15:47:30.148Z] ----------------------------------------------------------------------
+[debug] [2019-10-22T15:47:30.150Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-10-22T15:47:30.150Z] CLI Version:   7.6.1
+[debug] [2019-10-22T15:47:30.150Z] Platform:      win32
+[debug] [2019-10-22T15:47:30.150Z] Node Version:  v12.13.0
+[debug] [2019-10-22T15:47:30.151Z] Time:          Tue Oct 22 2019 22:47:30 GMT+0700 (GMT+07:00)
+[debug] [2019-10-22T15:47:30.151Z] ----------------------------------------------------------------------
+[debug] [2019-10-22T15:47:30.151Z] 
+[debug] [2019-10-22T15:47:30.163Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-22T15:47:30.164Z] > authorizing via signed-in user
+[debug] [2019-10-22T15:47:30.164Z] [iam] checking project foodmonkey-457b5 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-10-22T15:47:30.166Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/foodmonkey-457b5:testIamPermissions  
+
+[debug] [2019-10-22T15:47:31.555Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-22T15:47:31.561Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/foodmonkey-457b5  
+ 
+[debug] [2019-10-22T15:47:31.963Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'foodmonkey-457b5'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-10-22T15:47:31.983Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/foodmonkey-457b5/versions  
+
+[debug] [2019-10-22T15:47:33.980Z] <<< HTTP RESPONSE 200
+[info] i  hosting[foodmonkey-457b5]: beginning deploy...
+[debug] [2019-10-22T15:47:34.425Z] Error: EPERM: operation not permitted, scandir 'C:/Users/เก็จมณี/AppData/Local/Application Data'
+    at Object.readdirSync (fs.js:854:3)
+    at GlobSync._readdir (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:288:41)
+    at GlobSync._readdirInGlobStar (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:245:17)
+    at GlobSync._readdir (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:276:17)
+    at GlobSync._processReaddir (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:137:22)
+    at GlobSync._process (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:132:10)
+    at GlobSync._processGlobStar (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:380:10)
+    at GlobSync._process (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:130:10)
+    at GlobSync._processGlobStar (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:383:10)
+    at GlobSync._process (C:\Users\เก็จมณี\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:130:10)
+[error] 
+[error] Error: An unexpected error has occurred.
